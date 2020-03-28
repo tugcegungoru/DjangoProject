@@ -1,1 +1,1 @@
-"# Django Araá Alçm Satçm Projesi" 
+"# Django Arac Alim Satim Projesi" 
