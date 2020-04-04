@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="Header degisti">
+    <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585415978804</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Header degisti">
+      <created>1585416133414</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585416133414</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -77,17 +90,25 @@
     <option name="LAST_COMMIT_MESSAGE" value="Header degisti" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="808" y="0" key="CommitChangelistDialog2" timestamp="1585416035189">
+    <state x="808" y="0" key="CommitChangelistDialog2" timestamp="1585416132544">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="808" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585416035189" />
+    <state x="808" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585416132544" />
     <state x="555" y="55" key="SettingsEditor" timestamp="1584065410680">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584065410680" />
-    <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1585413448815">
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1585416273304">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="839" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585413448815" />
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585416273304" />
+    <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1586008258593">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="839" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586008258593" />
+    <state x="963" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585416178890">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="963" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585416178890" />
   </component>
 </project>
