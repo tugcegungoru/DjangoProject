@@ -1,0 +1,34 @@
+{% extends 'homebase.html' %}
+{% block title %} İletişim - {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">İletişim</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+<section class="section white">
+    <div class="inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="blog-post">
+                        <div class="content">
+                            <p>{{ setting.contact | safe }} </p>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                </div>
+                {% block sidebar %}   {% include "sidebar.html" %} {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
