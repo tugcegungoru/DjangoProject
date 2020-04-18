@@ -1,45 +1,21 @@
 {% load static %}
 <div class="flexslider welcome">
-	<div class="slides">
-		<div class="slide" style="background-image: url( {% static 'images/background01.jpg' %} );">
-			<div class="inner">
-				<div class="container">
-					<div class="banner-wrapper">
-						<div class="banner">
-							<div class="before">$480000</div>
-							Top Cars: Mercedes S Class
-						</div> <!-- end .banner -->
-					</div> <!-- end .banner-wrapper -->
-					<a href="details.html" class="button border white xsmall">Know More</a>
-				</div> <!-- end .container -->
-			</div> <!-- end .inner -->
-		</div> <!-- end .slide -->
-		<div class="slide" style="background-image: url({% static 'images/background02.jpg' %} );">
-			<div class="inner">
-				<div class="container">
-					<div class="banner-wrapper">
-						<div class="banner big light">
-							Top Cars: Mercedes S Class
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem eriam, eaque ipsa quae ab illo inventore veritatis..</p>
-						</div> <!-- end .banner -->
-					</div> <!-- end .banner-wrapper -->
-					<a href="details.html" class="button solid blue xsmall">Know More</a>
-				</div> <!-- end .container -->
-			</div> <!-- end .inner -->
-		</div> <!-- end .slide -->
-		<div class="slide" style="background-image: url({% static 'images/background02.jpg' %} );">
-			<div class="inner">
-				<div class="container">
-					<div class="banner-wrapper">
-						<div class="banner big">
-							<div class="before">$480000</div>
-							Top Cars: Mercedes S Class
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem eriam, eaque ipsa quae ab illo inventore veritatis..</p>
-						</div> <!-- end .banner -->
-					</div> <!-- end .banner-wrapper -->
-					<a href="details.html" class="button solid white xsmall">Know More</a>
-				</div> <!-- end .container -->
-			</div> <!-- end .inner -->
-		</div> <!-- end .slide -->
+	{% for rs in sliderdata %}
+		<div class="slides">
+			<div class="slide" style="background-image: url({{rs.image.url}});">
+				<div class="inner">
+					<div class="container">
+						<div class="banner-wrapper">
+							<div class="banner">
+								<div class="before">{{rs.price}} ₺ </div>
+								{{rs.title}}
+							</div> <!-- end .banner -->
+						</div> <!-- end .banner-wrapper -->
+						<a href="/car/{{ rs.id }}/{{ rs.slug }}" class="button border white xsmall">İncele</a>
+					</div> <!-- end .container -->
+				</div> <!-- end .inner -->
+			</div> <!-- end .slide -->
+		{% endfor %}
+
 	</div> <!-- end .slides -->
 </div> <!-- end .welcome -->

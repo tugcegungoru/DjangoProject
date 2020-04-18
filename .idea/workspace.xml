@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="Hakkımızda, Referanslar, İletişim Sayfalarının Yapılması">
+    <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586200247479</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Contact Us Form (Bize Ulaşın Formu)">
+      <created>1587251207158</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587251207158</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -127,21 +133,22 @@
     <MESSAGE value="Setting Tablosu ve Dinamik Favicon Ekleme" />
     <MESSAGE value="Admin Panelde CKEditör (Zengin Metin Editörü) Kullanımı" />
     <MESSAGE value="Hakkımızda, Referanslar, İletişim Sayfalarının Yapılması" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hakkımızda, Referanslar, İletişim Sayfalarının Yapılması" />
+    <MESSAGE value="Contact Us Form (Bize Ulaşın Formu)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Contact Us Form (Bize Ulaşın Formu)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1586217865707">
+    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1587251201757">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586217865707" />
+    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1587251201757" />
     <state x="555" y="55" key="SettingsEditor" timestamp="1584065410680">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584065410680" />
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1586200254192">
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1587251224401">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586200254192" />
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1587251224401" />
     <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1587234441509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
