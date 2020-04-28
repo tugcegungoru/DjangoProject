@@ -3,14 +3,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from car.models import Car
+from car.models import Car, Category
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]
+    category = Category.objects.all()
     context= {'setting': setting,
+              'category': category,
               'page':'home',
               'sliderdata':sliderdata}
     return render(request, 'index.html', context)
