@@ -1,0 +1,166 @@
+{% extends 'homebase.html' %}
+{% block title %} {{ categorydata.title }} Arabalar {% endblock %}
+{% block keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block description %} {{ categorydata.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="page-title" style="background-image: url('images/background01.jpg');">
+	<div class="inner">
+		<div class="container">
+			<div class="title">{{categorydata.title}}</div> <!-- end .title -->
+		</div> <!-- end .container -->
+	</div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+
+<section class="section small-top-padding white">
+	<div class="inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+					<div class="listings">
+						<div class="listings-list clearfix">
+							{% for rs in cars %}
+							<div class="listing">
+								<div class="image" style="background-image: url({{rs.image.url}});"></div>
+								<div class="details">
+									<div class="item"><span>{{rs.km}}</span><i class="icon-car-seat"></i></div>
+									<div class="item"><span>{{rs.fuel}}</span><i class="icon-car-fuel"></i></div>
+									<div class="item"><span>{{rs.situation}}</span><i class="icon-car-door"></i></div>
+									<div class="item"><span>{{rs.gear}}</span><i class="icon-car-gear"></i></div>
+									<div class="item"><span>4</span><i class="fa fa-certificate"></i></div>
+								</div> <!-- end .details -->
+								<div class="content">
+									<div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+									<div class="title"><a href="details.html">{{rs.title}}</a></div>
+									<p>{{rs.description}}</p>
+									<a href="/cars/{{rs.id}}/{{rs.slug}}" class="button border">Daha Fazla</a>
+									<div class="price">{{rs.price}}₺</div>
+								</div> <!-- end .content -->
+							</div> <!-- end .listing -->
+							{% endfor %}
+						</div>
+					</div> <!-- end .listing-grid -->
+					<div class="pagination-wrapper">
+						<nav>
+							<ul class="pager">
+								<li class="previous"><a href=""><span><i class="fa fa-angle-left"></i></span>Prev</a></li>
+								<li class="next"><a href="">Next<span><i class="fa fa-angle-right"></i></span></a></li>
+							</ul>
+							<ul class="pagination">
+								<li class="active"><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li class="disabled"><a href=""><i class="ion-ios-more"></i></a></li>
+								<li><a href="">7</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div> <!-- end .col-sm-9 -->
+				<div class="col-sm-3">
+					<div class="refine-search">
+						<div class="title clearfix">Refine Your Search<i class="fa fa-search pull-right"></i></div>
+						<form>
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Brand</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Model</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>1st Registration From</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<span class="price-slider-value">Price: <span id="price-min"></span> - <span id="price-max"></span></span>
+								<div id="price-slider"></div>
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Fuel</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Gear</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Engine Size</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<span class="distance-slider-value">Kilometers: <span id="distance-min"></span> - <span id="distance-max"></span> km</span>
+								<div id="distance-slider"></div>
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Car Type</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<div class="form-group">
+								<div class="select-wrapper">
+									<select class="selectpicker">
+										<option>Car Color</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+									</select>
+									<span class="arrow"><i class="fa fa-caret-down"></i></span>
+								</div> <!-- end .select-wrapper -->
+							</div> <!-- end .form-group -->
+							<button type="submit" class="button solid yellow block">Search</button>
+						</form>
+					</div> <!-- end .refine-search -->
+				</div> <!-- end .col-sm-3 -->
+				{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+			</div> <!-- end .row -->
+		</div> <!-- end .container -->
+	</div> <!-- end .inner -->
+</section> <!-- end .section -->
+{% endblock %}

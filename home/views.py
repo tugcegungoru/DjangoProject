@@ -6,13 +6,10 @@ from django.shortcuts import render
 from car.models import Car, Category
 from home.models import Setting, ContactFormu, ContactFormMessage
 
-
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]
     category = Category.objects.all()
-
-
     context= {'setting': setting,
               'category': category,
               'page':'home',
@@ -21,12 +18,17 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
-    context= {'setting': setting}
+    category = Category.objects.all()
+    context= {'setting': setting,
+              'category': category}
     return render(request, 'hakkimizda.html', context)
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
-    context= {'setting': setting}
+    category = Category.objects.all()
+    context= {'setting': setting,
+              'category': category,
+              }
     return render(request, 'referanslar.html', context)
 
 def iletisim(request):      #formu kaydetmek için
@@ -45,5 +47,18 @@ def iletisim(request):      #formu kaydetmek için
 
     setting = Setting.objects.get(pk=1)   #forma ulaşmak için
     form = ContactFormu()
-    context = {'setting': setting, 'form':form}
+    category = Category.objects.all()
+    context = {'setting': setting,
+               'form':form,
+               'category': category}
     return render(request, 'iletisim.html', context)
+
+
+def category_cars(request,id,slug):
+    category = Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    cars = Car.objects.filter(category_id=id)
+    context= {'cars': cars,
+              'category': category,
+              'categorydata':categorydata}
+    return render(request, 'cars.html', context)
