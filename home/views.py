@@ -11,6 +11,8 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]
     category = Category.objects.all()
+
+
     context= {'setting': setting,
               'category': category,
               'page':'home',
