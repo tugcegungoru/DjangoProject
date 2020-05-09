@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from car.models import Car, Category
+from car.models import Car, Category, Images
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 def index(request):
@@ -67,3 +67,14 @@ def category_cars(request,id,slug):
               'category': category,
               'categorydata':categorydata}
     return render(request, 'cars.html', context)
+
+def car_detail(request,id,slug):
+    category = Category.objects.all()
+    car = Car.objects.get(pk=id)
+    images = Images.objects.filter(car_id=id)
+    randomcars = Car.objects.all().order_by('?')[:4]
+    context = {'car': car,
+               'category': category,
+               'images': images,
+               'randomcars': randomcars}
+    return render(request, 'car_detail.html',context)
