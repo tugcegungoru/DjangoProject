@@ -13,154 +13,33 @@
     </div> <!-- end .inner -->
 </section> <!-- end .section -->
 
-<section class="section light">
-    <div class="inner">
-        <div class="container">
-            <h1 class="main-heading">What are you looking for?<small>Best Car Deals</small></h1>
-            <div class="services clearfix">
-                <div class="service yellow">
-                    <div class="icon">
-                        <i class="icon-minicar"></i>
-                        <div class="sub-icon">$</div> <!-- end .sub-icon -->
-                    </div> <!-- end .icon -->
-                    <div class="line"></div> <!-- end .line -->
-                    <h5>Car Sale</h5>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                </div> <!-- end .service -->
-                <div class="service orange">
-                    <div class="icon">
-                        <i class="icon-sports-car"></i>
-                        <div class="sub-icon"><i class="ion-key"></i></div> <!-- end .sub-icon -->
-                    </div> <!-- end .icon -->
-                    <div class="line"></div> <!-- end .line -->
-                    <h5>Car Buy</h5>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                </div> <!-- end .service -->
-                <div class="service green">
-                    <div class="icon">
-                        <i class="icon-monster-truck"></i>
-                        <div class="sub-icon">R</div> <!-- end .sub-icon -->
-                    </div> <!-- end .icon -->
-                    <div class="line"></div> <!-- end .line -->
-                    <h5>Car On Rent</h5>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</p>
-                </div> <!-- end .service -->
-            </div> <!-- end .services -->
-        </div> <!-- end .container -->
-    </div> <!-- end .inner -->
-</section> <!-- end .section -->
-
 <section class="section white">
     <div class="inner">
         <h1 class="main-heading">Featured Car Deals<small>Best Car Deals</small></h1>
         <div id="featured-cars" class="owl-carousel featured-cars">
+            {% for rs in daycars %}
             <div class="item">
                 <div class="featured-car">
                     <div class="image">
-                        <a href=""><img src="{% static 'images/featured-car01.jpg'%}" alt="car" class="img-responsive"></a>
-                        <span class="sale-tag">For Sale</span>
+                        <a href="/cars/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="car" class="img-responsive"></a>
+                        <span class="sale-tag"></span>
                     </div> <!-- end .image -->
                     <div class="content">
                         <div class="clearfix">
-                            <h5><a href="">Range Rover</a></h5>
-                            <span class="price">$80,000</span>
-							</div> <!-- end .clearfix -->
-                        <div class="line"></div>
-                        <p>Nam liber tempor cum soluta nobis eleife option congue nihil...</p>
-                    </div> <!-- end .content -->
-                    <div class="details clearfix">
-                        <div class="seats"><i class="icon-car-seat"></i>4</div>
-                        <div class="fuel"><i class="icon-car-fuel"></i>Petrol</div>
-                        <div class="type"><i class="icon-car-door"></i>Sport</div>
-                    </div> <!-- end .details -->
-                </div> <!-- end .featured-car -->
-            </div> <!-- end .item -->
-            <div class="item">
-                <div class="featured-car">
-                    <div class="image">
-                        <a href=""><img src="{% static 'images/featured-car02.jpg'%}" alt="car" class="img-responsive"></a>
-                        <span class="sale-tag">For Sale</span>
-                    </div> <!-- end .image -->
-						<div class="content">
-                            <div class="clearfix">
-                                <h5><a href="">Porsche</a></h5>
-                                <span class="price">$80,000</span>
-                            </div> <!-- end .clearfix -->
-                            <div class="line"></div>
-                            <p>Nam liber tempor cum soluta nobis eleife option congue nihil...</p>
-                        </div> <!-- end .content -->
-                    <div class="details clearfix">
-                        <div class="seats"><i class="icon-car-seat"></i>4</div>
-                        <div class="fuel"><i class="icon-car-fuel"></i>Petrol</div>
-                        <div class="type"><i class="icon-car-door"></i>Sport</div>
-                    </div> <!-- end .details -->
-                </div> <!-- end .featured-car -->
-            </div> <!-- end .item -->
-            <div class="item">
-                <div class="featured-car">
-                    <div class="image">
-                        <a href=""><img src="{% static 'images/featured-car03.jpg'%}" alt="car" class="img-responsive"></a>
-                        <span class="sale-tag green">For Rent</span>
-                    </div> <!-- end .image -->
-                    <div class="content">
-                        <div class="clearfix">
-                            <h5><a href="">Mercediz Benz</a></h5>
-                            <span class="price">$10 / km</span>
+                            <h5><a href="/cars/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></h5>
+                            <span class="price">{{rs.price}}₺</span>
                         </div> <!-- end .clearfix -->
                         <div class="line"></div>
-                        <p>Nam liber tempor cum soluta nobis eleife option congue nihil...</p>
+                        <p>{{rs.description}}</p>
                     </div> <!-- end .content -->
                     <div class="details clearfix">
                         <div class="seats"><i class="icon-car-seat"></i>4</div>
-                        <div class="fuel"><i class="icon-car-fuel"></i>Petrol</div>
+                        <div class="fuel"><i class="icon-car-fuel"></i>{{rs.fuel}}</div>
                         <div class="type"><i class="icon-car-door"></i>Sport</div>
                     </div> <!-- end .details -->
                 </div> <!-- end .featured-car -->
             </div> <!-- end .item -->
-            <div class="item">
-                <div class="featured-car">
-                    <div class="image">
-                        <a href=""><img src="{% static 'images/featured-car01.jpg'%}" alt="car" class="img-responsive"></a>
-                        <span class="sale-tag">For Sale</span>
-                    </div> <!-- end .image -->
-                    <div class="content">
-                        <div class="clearfix">
-                            <h5><a href="">Range Rover</a></h5>
-                            <span class="price">$80,000</span>
-                        </div> <!-- end .clearfix -->
-                        <div class="line"></div>
-                        <p>Nam liber tempor cum soluta nobis eleife option congue nihil...</p>
-                    </div> <!-- end .content -->
-                    <div class="details clearfix">
-                        <div class="seats"><i class="icon-car-seat"></i>4</div>
-                        <div class="fuel"><i class="icon-car-fuel"></i>Petrol</div>
-                        <div class="type"><i class="icon-car-door"></i>Sport</div>
-                    </div> <!-- end .details -->
-                </div> <!-- end .featured-car -->
-            </div> <!-- end .item -->
-            <div class="item">
-                <div class="featured-car">
-                    <div class="image">
-                        <a href=""><img src="{% static 'images/featured-car02.jpg'%}" alt="car" class="img-responsive"></a>
-                        <span class="sale-tag">For Sale</span>
-                    </div> <!-- end .image -->
-                    <div class="content">
-                        <div class="clearfix">
-                            <h5><a href="">Porsche</a></h5>
-                            <span class="price">$80,000</span>
-                        </div> <!-- end .clearfix -->
-                        <div class="line"></div>
-                        <p>Nam liber tempor cum soluta nobis eleife option congue nihil...</p>
-                    </div> <!-- end .content -->
-                    <div class="details clearfix">
-                        <div class="seats"><i class="icon-car-seat"></i>4</div>
-                        <div class="fuel"><i class="icon-car-fuel"></i>Petrol</div>
-                        <div class="type"><i class="icon-car-door"></i>Sport</div>
-                    </div> <!-- end .details -->
-                </div> <!-- end .featured-car -->
-            </div> <!-- end .item -->
+            {% endfor %}
         </div> <!-- end .featured-cars -->
-
     </div> <!-- end .inner -->
 </section> <!-- end .section -->
-

@@ -10,10 +10,15 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]
     category = Category.objects.all()
+    daycars= Car.objects.all()[:5]
+    #lastcars = Car.objects.all().order_by('-id')[:4]
+    #randomcars = Car.objects.all().order_by('?')[:4]
+
     context= {'setting': setting,
               'category': category,
               'page':'home',
-              'sliderdata':sliderdata}
+              'sliderdata':sliderdata,
+              'daycars': daycars}
     return render(request, 'index.html', context)
 
 def hakkimizda(request):
