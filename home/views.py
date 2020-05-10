@@ -2,8 +2,10 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
+
+from home.forms import SearchForm
 # Create your views here.
-from car.models import Car, Category, Images
+from car.models import Car, Category, Images, Comment
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 def index(request):
@@ -73,8 +75,23 @@ def car_detail(request,id,slug):
     car = Car.objects.get(pk=id)
     images = Images.objects.filter(car_id=id)
     randomcars = Car.objects.all().order_by('?')[:4]
+    comments = Comment.objects.filter(car_id=id,status='True')
     context = {'car': car,
                'category': category,
                'images': images,
-               'randomcars': randomcars}
-    return render(request, 'car_detail.html',context)
+               'randomcars': randomcars,
+               'comments': comments}
+    return render(request, 'car_detail.html' , context)
+
+def product_search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            category = Category.objects.all()
+            query = form.cleaned_data['query']
+            cars = Car.objects.filter(title__icontains=query)
+
+            context = {'cars': cars,
+                       'category': category,}
+            return render(request, 'cars_search_html',context)
+    return HttpResponseRedirect('/')

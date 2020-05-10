@@ -29,9 +29,9 @@ urlpatterns = [
     path('car/', include('car.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('category/<int:id>/<slug:slug>', views.category_cars, name='category_cars'),
-    path('car/<int:id>/<slug:slug>', views.car_detail, name='car_detail'),
-
+    path('category/<int:id>/<slug:slug>/', views.category_cars, name='category_cars'),
+    path('car/<int:id>/<slug:slug>/', views.car_detail, name='car_detail'),
+    path('search/', views.product_search, name='product_search'),
 ]
 if settings.DEBUG: #new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

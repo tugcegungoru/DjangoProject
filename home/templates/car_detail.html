@@ -29,7 +29,6 @@
                     <div class="col-sm-8">
                         <div class="clearfix">
                             <div class="title">{{car.title}}</div>
-                            <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
                         </div>
                         <div id="car-details-slider" class="image">
                             <div class="item"><img src="{{car.image.url}}" alt="alt" class="img-responsive"></div>
@@ -39,21 +38,28 @@
                         </div>
                         <div class="tabpanel border" role="tabpanel">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#heading-tab4" aria-controls="heading-tab4" role="tab" data-toggle="tab">Araç Açıklaması</a></li>
-                                <li role="presentation"><a href="#heading-tab5" aria-controls="heading-tab5" role="tab" data-toggle="tab">Araç Detayı</a></li>
+                                <li role="presentation" class="active"><a href="#heading-tab5" aria-controls="heading-tab5" role="tab" data-toggle="tab">Araç Detayı</a></li>
                                 <li role="presentation"><a href="#heading-tab6" aria-controls="heading-tab6" role="tab" data-toggle="tab">Araç Yorumları</a></li>
                             </ul> <!-- end .nav-tabs -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="heading-tab4">
-                                    <p>
-                                        {{car.description}}
-                                    </p>
-                                </div> <!-- end .tab-panel -->
                                 <div role="tabpanel" class="tab-pane fade" id="heading-tab5">
                                     <p>{{car.detail | safe }}</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="heading-tab6">
-                                    <p>yorumlarryorumlarryorumlarryorumlarryorumlarr</p>
+                                    <p>
+                                        <div class="comments">
+										<h4>Yorumlar</h4>
+                                         {% for rs in comments %}
+										<div class="comment clearfix">
+                                            {% load static %}
+											<div class="image"><img src="{% static 'images/comment01.jpg' %}"></div>
+											<div class="content">
+												<p><a href="">{{rs.user.first_name}} {{rs.user.last_name}}</a><br><br><b>{{rs.subject}}</b><p>{{rs.comment}}</p></p>
+											</div> <!-- end .content -->
+										</div> <!-- end .comment -->
+                                        {% endfor %}
+									</div> <!-- end .comments -->
+                                    </p>
                                 </div> <!-- end .tab-panel -->
                             </div> <!-- end .tab-content -->
                         </div> <!-- end .tabpanel -->
@@ -107,8 +113,41 @@
                             </div> <!-- end .item -->
                         </div> <!-- end .main-car-details -->
                     </div> <!-- end .col-sm-4 -->
+                    <div class="col-sm-4">
+                        <div class="leave-reply">
+                            <h4>Yanıtınızı Bırakın</h4>
+                            <div class="col-sm-4">
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}" role="alert">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            <form action="/car/addcomment/{{car.id}}" method="post">
+                                {% csrf_token %}
+                                <div>
+                                    <div>
+                                        <div class="form-group">
+                                            <input name="subject" type="text" id="comment-name" required placeholder="Konu*" />
+                                        </div> <!-- end .form-group -->
+                                        <div class="form-group">
+                                            <textarea name="comment" id="comment-message" required placeholder="Yorum*" rows="7"></textarea>
+                                        </div> <!-- end .form-group -->
+                                        {% if user.id is not None %}
+                                        <input type="submit" value="Yorum Yap" class="button solid light-blue" />
+                                        {% else %}
+                                        Yorum eklemek için <a href="/login">giriş</a> yapınız.
+                                        {% endif %}
+                                    </div> <!-- end .col-sm-6 -->
+                                </div> <!-- end .row -->
+                            </form>
+                        </div>
+                    </div> <!-- end .leave-reply -->
                 </div> <!-- end .row -->
             </div> <!-- end .car-details -->
+
             <div class="listings related-vehicles">
                 <div class="heading clearfix"><h5>SİZİN İÇİN SEÇİLENLER</h5></div>
                 <div class="listings-grid clearfix">
@@ -116,7 +155,7 @@
                     <div class="listing">
                         <div class="image"><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="listing" class="img-responsive"></a></div>
                         <div class="content">
-                            <div class="title"><a href="">{{rs.title}}</a></div>
+                            <div class="title"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></div>
                             <p>{{rs.description}}</p>
                             <div class="price">{{rs.price}}₺</div>
                         </div>
@@ -127,5 +166,4 @@
         </div> <!-- end .container -->
     </div> <!-- end .inner -->
 </section> <!-- end .section -->
-
 {% endblock %}

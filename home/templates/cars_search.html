@@ -1,0 +1,66 @@
+{% extends 'homebase.html' %}
+{% block title %} {{ categorydata.title }} Arabalar {% endblock %}
+{% block keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block description %} {{ categorydata.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="page-title" style="background-image: url('images/background01.jpg');">
+	<div class="inner">
+		<div class="container">
+			<div class="title">{{categorydata.title}}</div> <!-- end .title -->
+		</div> <!-- end .container -->
+	</div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+
+<section class="section small-top-padding white">
+	<div class="inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+					<div class="listings">
+						<div class="listings-list clearfix">
+							<table cellpadding="3" width="1200">
+								<tr>
+									<th>Image</th>
+									<th>Product Name</th>
+									<th>Category</th>
+									<th>Price</th>
+								</tr>
+							</table>
+							{% for rs in cars %}
+							<tr>
+								<td><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt=""></a></td>
+								<td><h4 class="car-name"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></h4></td>
+								<td><a href="/category/{{rs.category.id}}/{{rs.category.slug}}">{{rs.category}}</a></td>
+								<td><h4>{{rs.price}}₺</h4></td>
+							</tr>
+							{% endfor %}
+						</div>
+					</div> <!-- end .listing-grid -->
+					<div class="pagination-wrapper">
+						<nav>
+							<ul class="pager">
+								<li class="previous"><a href=""><span><i class="fa fa-angle-left"></i></span>Prev</a></li>
+								<li class="next"><a href="">Next<span><i class="fa fa-angle-right"></i></span></a></li>
+							</ul>
+							<ul class="pagination">
+								<li class="active"><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li class="disabled"><a href=""><i class="ion-ios-more"></i></a></li>
+								<li><a href="">7</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div> <!-- end .col-sm-9 -->
+			</div> <!-- end .row -->
+		</div> <!-- end .container -->
+	</div> <!-- end .inner -->
+</section> <!-- end .section -->
+{% endblock %}
