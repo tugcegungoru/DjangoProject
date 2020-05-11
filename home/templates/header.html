@@ -3,11 +3,6 @@
 	<div class="container">
 		<div class="navigation clearfix">
 			<div class="logo"><a href="/"><img src="{% static 'images/logo.png'%}" alt="Automan" class="img-responsive"></a></div> <!-- end .logo -->
-			<div class="login"><a href=""><i class="ion-ios-person"></i></a></div> <!-- end .login -->
-			<div class="contact">
-				<div class="line"></div>
-				<a href="contact-us.html"><i class="fa fa-phone"></i></a>
-			</div> <!-- end .contact -->
 			<nav class="main-nav">
 
 				<ul class="list-unstyled">
@@ -55,6 +50,21 @@
 					</li>
 					<li><a href="/hakkimizda">HAKKIMIZDA</a></li>
 					<li><a href="/iletisim">İLETİŞİM</a></li>
+					<li>
+						{% if user.id is not None %}
+						<a href="/">{{user.first_name}} {{user.last_name}}</a>
+						<ul>
+							<li><a href="#">Hesabım</a></li>
+							<li><a href="#">İstek Listesi</a></li>
+							<li><a href="#">Karşılaştır</a></li>
+							<li><a href="#">Yorumlarım</a></li>
+							<li><a href="/logout">Çıkış Yap</a></li>
+						</ul>
+						{% else %}
+						<a href="/login">Login</a>
+						<div class="login"><a href="/login"><i class="ion-ios-person"></i></a></div>
+						{% endif %}
+					</li>
 				</ul>
 			</nav> <!-- end .main-nav -->
 			<a href="" class="responsive-menu-open"><i class="fa fa-bars"></i></a>
