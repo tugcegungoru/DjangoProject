@@ -83,15 +83,14 @@ def car_detail(request,id,slug):
                'comments': comments}
     return render(request, 'car_detail.html' , context)
 
-def product_search(request):
+def car_search(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
             category = Category.objects.all()
             query = form.cleaned_data['query']
             cars = Car.objects.filter(title__icontains=query)
-
             context = {'cars': cars,
-                       'category': category,}
-            return render(request, 'cars_search_html',context)
+                       'category': category}
+            return render(request, 'cars_search.html',context)
     return HttpResponseRedirect('/')

@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %} {{ categorydata.title }} Arabalar {% endblock %}
+{% block title %} {{ categorydata.title }} Arama Sonuçları {% endblock %}
 {% block keywords %} {{ categorydata.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description }} {% endblock %}
 {% block head %}
@@ -13,7 +13,7 @@
 <div class="page-title" style="background-image: url('images/background01.jpg');">
 	<div class="inner">
 		<div class="container">
-			<div class="title">{{categorydata.title}}</div> <!-- end .title -->
+			<div class="title">Arama Sonuçları</div> <!-- end .title -->
 		</div> <!-- end .container -->
 	</div> <!-- end .inner -->
 </div> <!-- end .page-title -->
@@ -24,43 +24,38 @@
 			<div class="row">
 				<div class="col-sm-9">
 					<div class="listings">
-						<div class="listings-list clearfix">
-							<table cellpadding="3" width="1200">
-								<tr>
-									<th>Image</th>
-									<th>Product Name</th>
-									<th>Category</th>
-									<th>Price</th>
-								</tr>
-							</table>
-							{% for rs in cars %}
-							<tr>
-								<td><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt=""></a></td>
-								<td><h4 class="car-name"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></h4></td>
-								<td><a href="/category/{{rs.category.id}}/{{rs.category.slug}}">{{rs.category}}</a></td>
-								<td><h4>{{rs.price}}₺</h4></td>
-							</tr>
-							{% endfor %}
-						</div>
-					</div> <!-- end .listing-grid -->
-					<div class="pagination-wrapper">
-						<nav>
-							<ul class="pager">
-								<li class="previous"><a href=""><span><i class="fa fa-angle-left"></i></span>Prev</a></li>
-								<li class="next"><a href="">Next<span><i class="fa fa-angle-right"></i></span></a></li>
-							</ul>
-							<ul class="pagination">
-								<li class="active"><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li class="disabled"><a href=""><i class="ion-ios-more"></i></a></li>
-								<li><a href="">7</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div> <!-- end .col-sm-9 -->
-			</div> <!-- end .row -->
-		</div> <!-- end .container -->
-	</div> <!-- end .inner -->
+						<div class="heading clearfix">
+							<div class="listings-grid clearfix">
+								{% for rs in cars %}
+								<div class="listing">
+									<div class="image"><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="listing" class="img-responsive"></a></div>
+									<div class="content">
+										<div class="title"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></div>
+										<p>{{rs.description}}</p>
+										<div class="price">{{rs.price}}₺</div>
+									</div>
+								</div> <!-- end .listing -->
+								{% endfor %}
+							</div> <!-- end .listing-grid -->
+						</div> <!-- end .listings -->
+						<div class="pagination-wrapper">
+							<nav>
+								<ul class="pager">
+									<li class="previous"><a href=""><span><i class="fa fa-angle-left"></i></span>Prev</a></li>
+									<li class="next"><a href="">Next<span><i class="fa fa-angle-right"></i></span></a></li>
+								</ul>
+								<ul class="pagination">
+									<li class="active"><a href="">1</a></li>
+									<li><a href="">2</a></li>
+									<li><a href="">3</a></li>
+									<li class="disabled"><a href=""><i class="ion-ios-more"></i></a></li>
+									<li><a href="">7</a></li>
+								</ul>
+							</nav>
+						</div> <!-- end .pagination-wrapper -->
+					</div> <!-- end .col-sm-9 -->
+				</div> <!-- end .row -->
+			</div> <!-- end .container -->
+		</div> <!-- end .inner -->
 </section> <!-- end .section -->
 {% endblock %}
