@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myProject1/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myProject1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myProject1/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +39,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\myProject1\user\templates" />
+      <recent name="C:\Django\myProject1\user" />
       <recent name="C:\Django\myProject1\home\templates" />
       <recent name="C:\Django\myProject1\home" />
       <recent name="C:\Django\myProject1\car" />
@@ -200,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589216482956</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Üye Profili Ek Bilgiler ve Resim">
+      <created>1589233707608</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1589233707608</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -222,25 +236,26 @@
     <MESSAGE value="Kategori ve Araçlar için Otomatik Slug Oluşturma" />
     <MESSAGE value="Anasayfada Kullanıcı Giriş ve Çıkış İşlemleri" />
     <MESSAGE value="Üye Kayıt Formu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Üye Kayıt Formu" />
+    <MESSAGE value="Üye Profili Ek Bilgiler ve Resim" />
+    <option name="LAST_COMMIT_MESSAGE" value="Üye Profili Ek Bilgiler ve Resim" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="74" key="#Inspections" timestamp="1589035971077">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="722" y="74" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1589035971077" />
-    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1589216480595">
+    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1589233701051">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589216480595" />
+    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589233701051" />
     <state x="555" y="55" key="SettingsEditor" timestamp="1584065410680">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584065410680" />
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1589216490458">
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1589233712402">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589216490458" />
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589233712402" />
     <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1589231484189">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

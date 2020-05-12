@@ -53,8 +53,9 @@
 					<li>
 						{% if user.id is not None %}
 						<a href="/">{{user.first_name}} {{user.last_name}}</a>
+						<div class="login"><a href="/signup"><img src="{{request.user.profile.image.url}}"></img></a></div>
 						<ul>
-							<li><a href="#">Hesabım</a></li>
+							<li><a href="/user">Hesabım</a></li>
 							<li><a href="#">İstek Listesi</a></li>
 							<li><a href="#">Karşılaştır</a></li>
 							<li><a href="#">Yorumlarım</a></li>
@@ -63,7 +64,7 @@
 						{% else %}
 						<a href="/login">Login</a>
 
-						<div class="login"><a href="/signup"><i class="ion-ios-person"></i></a></div>
+						<div class="login"><a href="/signup"><img src="{{user.profile.image.url}}"></img></a></div>
 						{% endif %}
 					</li>
 				</ul>
