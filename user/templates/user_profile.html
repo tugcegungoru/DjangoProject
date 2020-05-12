@@ -24,52 +24,55 @@
 <section class="section white">
     <div class="inner">
         <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="contact-details">
-                            <div class="item">
-                                <div class="content">
-                                    {% include "user_panel.html" %}
-                                </div> <!-- end .content -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="contact-details">
+                        <div class="item">
+                            <div class="content">
+                                {% include "user_panel.html" %}
+                            </div> <!-- end .content -->
+                        </div> <!-- end .item -->
+                    </div> <!-- end .contact-details -->
+                </div> <!-- end .col-sm-4 -->
+
+                <div class="col-sm-8">
+                    <div class="general-comparison clearfix">
+                        <h5 class="text-uppercase"><strong>Kullanıcı Bilgileri</strong></h5><br><br>
+                        <div>
+                            <div class="item clearfix">
+                                <div class="option">
+                                    <p class="button-list"><a href="/user/update" class="button border dark size1">Profili Güncelle</a></p>
+                                    <p class="button-list"><a href="/user/password" class="button border yellow size1">Şifre Değiştirme</a></p></div>
+                                <div class="option-content"><img src="{{ profile.image.url}}" alt=""></div>
                             </div> <!-- end .item -->
-                        </div> <!-- end .contact-details -->
-                    </div> <!-- end .col-sm-4 -->
-                    <div class="col-sm-8">
-                        <div class="general-comparison clearfix">
-                            <h5 class="text-uppercase"><strong>Kullanıcı Bilgileri</strong></h5>
-                            <div>
-                                <div class="item clearfix">
-                                    <div class="option"></div>
-                                    <div class="option-content">{{ profile.image.url}}</div>
-                                </div> <!-- end .item -->
-                                <div class="item clearfix">
-                                    <div class="option">Adı Soyadı</div>
-                                    <div class="option-content">{{profile.user_name}}</div>
-                                </div> <!-- end .item -->
-                                <div class="item clearfix">
-                                    <div class="option">Email</div>
-                                    <div class="option-content">{{profile.user.email}}</div>
-                                </div> <!-- end .item -->
-                                <div class="item clearfix">
-                                    <div class="option">Telefon</div>
-                                    <div class="option-content">{{profile.phone}}</div>
-                                </div> <!-- end .item -->
-                                <div class="item clearfix">
-                                    <div class="option">Adres</div>
-                                    <div class="option-content">{{profile.address}}</div>
-                                </div> <!-- end .item -->
-                                <div class="item clearfix">
-                                    <div class="option">Şehir</div>
-                                    <div class="option-content">{{profile.city}}</div>
-                                </div> <!-- end .item -->
-                                <div class="item clearfix">
-                                    <div class="option">Ülke</div>
-                                    <div class="option-content">{{profile.country}}</div>
-                                </div> <!-- end .item -->
-                            </div> <!-- end .general-column -->
-                        </div>
-                    </div> <!-- end .details-box -->
-                </div> <!-- end .col-sm-8 -->
+                            <div class="item clearfix">
+                                <div class="option">Adı Soyadı</div>
+                                <div class="option-content">{{profile.user_name}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Email</div>
+                                <div class="option-content">{{profile.user.email}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Telefon</div>
+                                <div class="option-content">{{profile.phone}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Adres</div>
+                                <div class="option-content">{{profile.address}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Şehir</div>
+                                <div class="option-content">{{profile.city}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Ülke</div>
+                                <div class="option-content">{{profile.country}}</div>
+                            </div> <!-- end .item -->
+                        </div> <!-- end .general-column -->
+                    </div>
+                </div> <!-- end .details-box -->
+            </div> <!-- end .col-sm-8 -->
         </div> <!-- end .row -->
     </div> <!-- end .container -->
     </div> <!-- end .inner -->
