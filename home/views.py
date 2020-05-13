@@ -3,7 +3,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
-
+from content.models import Menu, Content, CImages
 from home.forms import SearchForm, SignUpForm
 # Create your views here.
 from car.models import Car, Category, Images, Comment
@@ -13,12 +13,14 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]
     category = Category.objects.all()
+    menu = Menu.objects.all()
     daycars= Car.objects.all()[:5]
     #lastcars = Car.objects.all().order_by('-id')[:4]
     #randomcars = Car.objects.all().order_by('?')[:4]
 
     context= {'setting': setting,
               'category': category,
+              'menu': menu,
               'page':'home',
               'sliderdata':sliderdata,
               'daycars': daycars}
@@ -27,15 +29,19 @@ def index(request):
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     context= {'setting': setting,
-              'category': category}
+              'category': category,
+              'menu': menu}
     return render(request, 'hakkimizda.html', context)
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     context= {'setting': setting,
               'category': category,
+              'menu':menu
               }
     return render(request, 'referanslar.html', context)
 
@@ -56,9 +62,12 @@ def iletisim(request):      #formu kaydetmek için
     setting = Setting.objects.get(pk=1)   #forma ulaşmak için
     form = ContactFormu()
     category = Category.objects.all()
+    menu = Menu.objects.all()
+
     context = {'setting': setting,
                'form':form,
-               'category': category}
+               'category': category,
+               'menu':menu}
     return render(request, 'iletisim.html', context)
 
 
@@ -66,23 +75,33 @@ def category_cars(request,id,slug):
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     cars = Car.objects.filter(category_id=id)
+    menu = Menu.objects.all()
+
     context= {'cars': cars,
               'category': category,
-              'categorydata':categorydata}
+              'categorydata':categorydata,
+              'menu':menu}
     return render(request, 'cars.html', context)
 
 def car_detail(request,id,slug):
     category = Category.objects.all()
-    car = Car.objects.get(pk=id)
-    images = Images.objects.filter(car_id=id)
-    randomcars = Car.objects.all().order_by('?')[:4]
-    comments = Comment.objects.filter(car_id=id,status='True')
-    context = {'car': car,
-               'category': category,
-               'images': images,
-               'randomcars': randomcars,
-               'comments': comments}
-    return render(request, 'car_detail.html' , context)
+    try:
+        car = Car.objects.get(pk=id)
+        images = Images.objects.filter(car_id=id)
+        randomcars = Car.objects.all().order_by('?')[:4]
+        comments = Comment.objects.filter(car_id=id,status='True')
+        menu = Menu.objects.all()
+        context = {'car': car,
+            'category': category,
+            'images': images,
+            'randomcars': randomcars,
+            'comments': comments,
+            'menu':menu}
+        return render(request, 'car_detail.html', context)
+    except:
+        messages.warning(request, " Hata! İlgili içerik bulunamadı")
+        link = '/error'
+        return HttpResponseRedirect(link)
 
 def car_search(request):
     if request.method == 'POST':
@@ -91,8 +110,11 @@ def car_search(request):
             category = Category.objects.all()
             query = form.cleaned_data['query']
             cars = Car.objects.filter(title__icontains=query)
+            menu = Menu.objects.all()
+
             context = {'cars': cars,
-                       'category': category}
+                       'category': category,
+                       'menu':menu}
             return render(request, 'cars_search.html',context)
     return HttpResponseRedirect('/')
 
@@ -130,3 +152,35 @@ def signup_view(request):
     context = {'category': category,
                'form': form}
     return render(request, 'signup.html', context)
+
+def menu(request,id):
+    try:
+        content = Content.objects.get(menu_id=id)
+        link = '/content/' + str(content.id) + '/menu'
+        return HttpResponseRedirect(link)
+    except:
+        messages.warning(request, " Hata! İlgili içerik bulunamadı")
+        link = '/error'
+        return HttpResponseRedirect(link)
+
+def contentdetail(request,id,slug):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    try:
+        content = Content.objects.get(pk=id)
+        images = CImages.objects.filter(content_id = id)
+        context = {'content': content,
+                   'category': category,
+                   'menu': menu,
+                   'images': images}
+    except:
+        messages.warning(request, " Hata! İlgili içerik bulunamadı")
+        link = '/error'
+        return HttpResponseRedirect(link)
+
+def error(request):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    context = {'category': category,
+               'menu': menu}
+    return render(request, 'error_page.html', context)

@@ -4,42 +4,45 @@
 		<div class="navigation clearfix">
 			<div class="logo"><a href="/"><img src="{% static 'images/logo.png'%}" alt="Automan" class="img-responsive"></a></div> <!-- end .logo -->
 			<nav class="main-nav">
-
+				{% load mptt_tags %}
 				<ul class="list-unstyled">
 					<li class="active">
 						<a href="/">ANASAYFA</a>
 					</li>
-					{% load mptt_tags %}
-					<li>
-						<a href="/">Kategoriler</a>
+					<li><a href="/hakkimizda">Kategoriler</a>
 						<ul>
 							{% recursetree category %}
-
-							{% if  node.is_leaf_node %}
-
-
-							<li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
-
-
-							{% endif %}
-
-
-							{% if not node.is_leaf_node %}
-
-							<li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
-								<ul>{{ children }} </ul></li>
-
-							{% endif %}
-
+							<li>
+								<a href="/category/{{ node.id }}/{{node.slug}}">{{ node.title }}</a>
+								{% if not node.is_leaf_node %}
+								<ul>
+									{{ children }}
+								</ul>
+								{% endif %}
+							</li>
 							{% endrecursetree %}
 						</ul>
 					</li>
 					<li>
-						<a href="blog.html">Blog</a>
+						<a href="/">Menü</a>
+						{% if menu %}
 						<ul>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="blog-post.html">Blog Post</a></li>
+							{% recursetree menu %}
+							<li>
+								<a href="/menu/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+								{% if not node.is_leaf_node %}
+								<ul>
+									{{ children }}
+								</ul>
+								{% endif %}
+							</li>
+							{% endrecursetree %}
 						</ul>
+						{% endif %}
+					</li>
+					<li>
+						<a href="/hakkimizda">Hakkımızda</a>
+
 					</li>
 					<li>
 						<a href="/referanslar">REFERANSLAR</a>
@@ -48,7 +51,6 @@
 							<li><a href="compare-details.html">Compare Details</a></li>
 						</ul>
 					</li>
-					<li><a href="/hakkimizda">HAKKIMIZDA</a></li>
 					<li><a href="/iletisim">İLETİŞİM</a></li>
 					<li>
 						{% if user.id is not None %}

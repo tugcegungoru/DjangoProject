@@ -1,0 +1,34 @@
+{% extends 'homebase.html' %}
+{% block title %} Hakkımızda - {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">Opps... Bir HATA OLUŞTU</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+<section class="section white">
+    <div class="inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="blog-post">
+                        <div class="content" align="center">
+                            <p><h1>ARADIĞINIZ İÇERİK BULUNAMADI.....</h1></p>
+                            <h3><a href="/">Anasayfaya Dön</a></h3>
+                        </div> <!-- end .content -->
+                    </div> <!-- end .blog-post -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

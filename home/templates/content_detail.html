@@ -1,0 +1,52 @@
+{% extends 'homebase.html' %}
+{% block title %} Hakkımızda - {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">Hakkımızda</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+<section class="section white">
+    <div class="inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="blog-post">
+                        <div class="content">
+                            <img src="{{content.image.url}}" alt=""><br>
+                            {{content.detail | safe }}
+                        </div> <!-- end .team-slider -->
+                    </div> <!-- end .content -->
+                    <!-- end .blog-post -->
+                    <div id="featured-cars" class="owl-carousel featured-cars">
+                        {% for rs in images %}
+                        <div class="item">
+                            <div class="featured-car">
+                                <div class="image">
+                                    <a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt=""></a>
+                                    <span class="sale-tag"></span>
+                                </div> <!-- end .image -->
+                                <div class="content">
+                                    <div class="clearfix">
+                                    </div> <!-- end .clearfix -->
+                                </div> <!-- end .content -->
+                            </div> <!-- end .featured-car -->
+                        </div> <!-- end .item -->
+                        {% endfor %}
+                    </div> <!-- end .featured-cars -->
+                </div>
+                {% block sidebar %}   {% include "sidebar.html" %} {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
