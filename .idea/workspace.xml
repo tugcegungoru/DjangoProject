@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -219,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589251393505</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Kullanıcı Üye Bilgilerini ve Şifresini Güncelleme">
+      <created>1589325226088</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1589325226088</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -243,29 +248,30 @@
     <MESSAGE value="Üye Kayıt Formu" />
     <MESSAGE value="Üye Profili Ek Bilgiler ve Resim" />
     <MESSAGE value="Üye Paneli ve Profil Bilgileri" />
-    <option name="LAST_COMMIT_MESSAGE" value="Üye Paneli ve Profil Bilgileri" />
+    <MESSAGE value="Kullanıcı Üye Bilgilerini ve Şifresini Güncelleme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcı Üye Bilgilerini ve Şifresini Güncelleme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="74" key="#Inspections" timestamp="1589035971077">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="722" y="74" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1589035971077" />
-    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1589251388300">
+    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1589325222991">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589251388300" />
+    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589325222991" />
     <state x="555" y="55" key="SettingsEditor" timestamp="1584065410680">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584065410680" />
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1589251400559">
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1589325234966">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589251400559" />
-    <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1589319042685">
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589325234966" />
+    <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1589334565641">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="839" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589319042685" />
+    <state x="839" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589334565641" />
     <state x="963" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585416178890">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

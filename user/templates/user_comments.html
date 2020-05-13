@@ -1,0 +1,60 @@
+{% extends 'homebase.html' %}
+{% block title %}Araba İlanı Yorumları{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %}
+<link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
+    <div class="inner">
+        <div class="container">
+            <div class="title">Araba İlanı Yorumları</div> <!-- end .title -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
+</div> <!-- end .page-title -->
+<header>
+    <section class="section white">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="contact-details">
+                            <div class="item">
+                                <div class="content">
+                                    {% include "user_panel.html" %}
+                                </div> <!-- end .content -->
+                            </div> <!-- end .item -->
+                        </div> <!-- end .contact-details -->
+                    </div> <!-- end .col-sm-4 -->
+
+                    <div class="col-sm-9">
+                        <table border="1" style="text-align:center;">
+                            <tr>
+                                <th>Araba</th>
+                                <th>Konu</th>
+                                <th>Yorum</th>
+                                <th>Status</th>
+                                <th>Tarih</th>
+                                <th>Detay</th>
+                            </tr>
+                            {% for rs in comments %}
+                            <tr>
+                                <td><a href="/car/{{rs.car_id}}/{{rs.car.slug}}">{{rs.car.title}}</a></td>
+                                <td> {{rs.subject}}</td>
+                                <td>{{rs.comment}}</td>
+                                <td>{{rs.status}}</td>
+                                <td>{{rs.create_at}}</td>
+                                <td><a href="/user/deletecomment/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a></td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+{% endblock %}
