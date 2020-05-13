@@ -17,7 +17,7 @@ def index(request):
     daycars= Car.objects.all()[:5]
     #lastcars = Car.objects.all().order_by('-id')[:4]
     #randomcars = Car.objects.all().order_by('?')[:4]
-
+    #announcements = Content.objects.filter(type='menu').order_by('-id')[:4]
     context= {'setting': setting,
               'category': category,
               'menu': menu,
@@ -173,6 +173,8 @@ def contentdetail(request,id,slug):
                    'category': category,
                    'menu': menu,
                    'images': images}
+        return render(request, 'content_detail.html', context)
+
     except:
         messages.warning(request, " Hata! İlgili içerik bulunamadı")
         link = '/error'
