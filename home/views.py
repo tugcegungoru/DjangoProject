@@ -7,7 +7,8 @@ from content.models import Menu, Content, CImages
 from home.forms import SearchForm, SignUpForm
 # Create your views here.
 from car.models import Car, Category, Images, Comment
-from home.models import Setting, ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, FAQ
+
 
 def index(request):
     setting = Setting.objects.get(pk=1)
@@ -186,3 +187,14 @@ def error(request):
     context = {'category': category,
                'menu': menu}
     return render(request, 'error_page.html', context)
+
+
+def faq(request):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    faq = FAQ.objects.all().order_by('ordernumber')
+    context = {'category': category,
+               'menu': menu,
+               'faq': faq}
+    return render(request, 'faq.html', context)
+

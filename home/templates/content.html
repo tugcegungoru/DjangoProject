@@ -1,26 +1,20 @@
 {% load static %}
 <div class="responsive-menu">
-	<a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
-	<nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
+    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
+    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
 </div> <!-- end .responsive-menu -->
 <section class="section dark tiny">
-	<div class="inner">
-		<div class="container">
-			<div class="tabpanel border section-tab" role="tabpanel"><ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#search-cars" aria-controls="search-cars" role="tab" data-toggle="tab">ARAMA</a></li>
-			</ul> <!-- end .nav-tabs -->
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane fade in active" id="search-cars">
-						<form action="/search/" method="post" class="banner-form">
-                            {% csrf_token %}
-                            <input name="query" class="input search-input" type="text" placeholder="Arama yapabilirsiniz..." >
-                            <button type="submit" class="button solid light-blue">Submit</button>
-                        </form> <!-- end .banner-form -->
-					</div> <!-- end .tab-panel -->
-				</div> <!-- end .tab-content -->
-			</div> <!-- end .tabpanel -->
-		</div> <!-- end .container -->
-	</div> <!-- end .inner -->
+    <div class="inner">
+        <div class="container">
+            <div class="widget">
+                <form class="search-form" action="/search/" method="post">
+                    {% csrf_token %}
+                    <input name="query" type="search" placeholder="search" />
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div> <!-- end .widget -->
+        </div> <!-- end .container -->
+    </div> <!-- end .inner -->
 </section> <!-- end .section -->
 <section class="section white no-padding-bottom text-center">
     <div class="inner">
