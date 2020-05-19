@@ -18,13 +18,15 @@ def index(request):
     daycars= Car.objects.all()[:5]
     #lastcars = Car.objects.all().order_by('-id')[:4]
     #randomcars = Car.objects.all().order_by('?')[:4]
-    #announcements = Content.objects.filter(type='menu').order_by('-id')[:4]
+    #advertisement = Content.objects.filter(type='ilan').order_by('-id')[:4]
     context= {'setting': setting,
               'category': category,
               'menu': menu,
               'page':'home',
               'sliderdata':sliderdata,
-              'daycars': daycars}
+              'daycars': daycars
+              #'advertisement',advertisement
+    }
     return render(request, 'index.html', context)
 
 def hakkimizda(request):
@@ -169,7 +171,7 @@ def contentdetail(request,id,slug):
     menu = Menu.objects.all()
     try:
         content = Content.objects.get(pk=id)
-        images = CImages.objects.filter(content_id = id)
+        images = CImages.objects.filter(content_id=id)
         context = {'content': content,
                    'category': category,
                    'menu': menu,

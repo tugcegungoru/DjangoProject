@@ -20,12 +20,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
-                    <div class="blog-post">
-                        <div class="content">
-                            <img src="{{content.image.url}}" alt=""><br>
-                            {{content.detail | safe }}
-                        </div> <!-- end .team-slider -->
-                    </div> <!-- end .content -->
+                    <img src="{{content.image.url}}" alt=""><br>
+                    {{content.detail | safe }}
                     <!-- end .blog-post -->
                     <div id="featured-cars" class="owl-carousel featured-cars">
                         {% for rs in images %}

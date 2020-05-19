@@ -1,7 +1,8 @@
+from ckeditor.widgets import CKEditorWidget
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput, FileInput, Select, NumberInput
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -41,17 +42,18 @@ class Category(MPTTModel):
 
     def get_absolute_url(self):
         return reverse('category_detail', kwargs={'slug': self.slug})
-
+STATUS = (
+    ('True', 'Evet'),
+    ('False', 'Hayır'),
+)
+SITUATION = (
+    ('True','Used'),
+    ('False','New'),
+)
 class Car(models.Model):
-    STATUS = (
-        ('True', 'Evet'),
-        ('False', 'Hayır'),
-    )
-    SITUATION = (
-        ('True','Used'),
-        ('False','New'),
-    )
+
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True )
     title = models.CharField(max_length=150)
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
@@ -113,3 +115,27 @@ class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ['subject','comment']
+
+
+class CarForm(ModelForm):
+    class Meta:
+        model = Car
+        fields = {'category','title','keywords','description','slug','image','price','year',
+                  'fuel','gear', 'km','motorpower','color','situation','detail'}
+        widgets = {
+            'title': TextInput(attrs={'class': 'form-group', 'placeholder': 'Başlık'}),
+            'category': Select(attrs={'class': 'input', 'placeholder': ''}, choices=Category.objects.all()),
+            'slug': TextInput(attrs={'class': 'form-group', 'placeholder': 'Slug'}),
+            'keywords': TextInput(attrs={'class': 'form-group', 'placeholder': 'Keywords'}),
+            'description': TextInput(attrs={'class': 'form-group', 'placeholder': 'Description'}),
+            'image': FileInput(attrs={'class': 'form-group', 'placeholder': 'Image'}),
+            'price': NumberInput(attrs={'class': 'form-group', 'placeholder': 'Fiyat'}),
+            'year': NumberInput(attrs={'class': 'form-group', 'placeholder': 'Yıl'}),
+            'fuel': TextInput(attrs={'class': 'form-group', 'placeholder': 'Yakıt'}),
+            'gear':TextInput(attrs={'class': 'form-group', 'placeholder': 'Vites'}),
+            'km':NumberInput(attrs={'class': 'form-group', 'placeholder': 'Kilometre'}),
+            'motorpower':NumberInput(attrs={'class': 'form-group', 'placeholder': 'Motor Gücü'}),
+            'color': TextInput(attrs={'class': 'form-group', 'placeholder': 'Renk'}),
+            'situation':Select(attrs={'class': 'form-group', 'placeholder': 'Type'}, choices=SITUATION),
+            'detail': CKEditorWidget(),
+        }
