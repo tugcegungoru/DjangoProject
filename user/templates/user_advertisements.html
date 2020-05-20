@@ -38,13 +38,13 @@
                             </div> <!-- end .item -->
                         <table border="1" style="text-align:center;">
                             <tr>
-                                <td width="150"><strong>Resim</strong></td>
-                                <td width="150"><strong>Başlık</strong></td>
-                                <td width="350"><strong>Fiyat</strong></td>
-                                <td width="200"><strong>Yıl</strong></td>
-                                <td width="70"><strong>Status</strong></td>
-                                <td width="200"><strong>Tarih</strong></td>
-                                <td width="70"><strong>Detay</strong></td>
+                                <td width="150px"><strong>Resim</strong></td>
+                                <td width="20px"><strong>Başlık</strong></td>
+                                <td width="20"><strong>Fiyat</strong></td>
+                                <td width="20"><strong>Yıl</strong></td>
+                                <td width="20"><strong>Status</strong></td>
+                                <td width="20"><strong>Tarih</strong></td>
+                                <td width="20"><strong>Detay</strong></td>
                             </tr>
                             {% for rs in advertisements %}
                             <tr>
@@ -54,8 +54,8 @@
                                 <td> {{rs.year}}</td>
                                 <td>{{rs.status}}</td>
                                 <td>{{rs.create_at}}</td>
-                                <td><a href="/user/contentedit/{{rs.id}}">Düzenle</a>
-                                <a href="/user/contentdelete/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a>
+                                <td><a href="/user/advertisementedit/{{rs.id}}">Düzenle</a>
+                                <a href="/user/advertisementdelete/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a>
                                 </td>
                             </tr>
                             {% endfor %}

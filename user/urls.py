@@ -15,4 +15,6 @@ urlpatterns = [
     path('contentdelete/<int:id>', views.contentdelete, name='contentdelete'),
     path('advertisements/', views.advertisements, name='advertisements'),
     path('addadvertisement/', views.addadvertisement, name='addadvertisement'),
+    path('advertisementedit/<int:id>', views.advertisementedit, name='advertisementedit'),
+    path('advertisementdelete/<int:id>', views.advertisementdelete, name='advertisementdelete'),
 ]
