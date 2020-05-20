@@ -4,8 +4,7 @@
     <list default="true" id="c1c2b2df-a6a4-404c-8b3d-57c1e2299c6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_advertisements.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_advertisements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,11 +257,17 @@
       <option name="project" value="LOCAL" />
       <updated>1589901773329</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Kullanıcı İlan Düzenleme ve Silme">
+      <created>1590014271981</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1590014271981</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Admin Resim Galerisi" />
     <MESSAGE value="Adminde Yüklenen Resimlerin Gösterilmesi" />
     <MESSAGE value="Setting Tablosu ve Dinamik Favicon Ekleme" />
     <MESSAGE value="Admin Panelde CKEditör (Zengin Metin Editörü) Kullanımı" />
@@ -287,7 +292,8 @@
     <MESSAGE value="CKEditör ile İçerik Ekleme Listeleme Düzenleme Silme" />
     <MESSAGE value="Sıkça Sorulan Sorular" />
     <MESSAGE value="Kullanıcı İlan Ekleme ve İlan Sayfası" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcı İlan Ekleme ve İlan Sayfası" />
+    <MESSAGE value="Kullanıcı İlan Düzenleme ve Silme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcı İlan Düzenleme ve Silme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="722" y="74" key="#Inspections" timestamp="1589035971077">
@@ -298,18 +304,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="910" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1589667878098" />
-    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1589901765509">
+    <state x="773" y="15" key="CommitChangelistDialog2" timestamp="1590014266852">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589901765509" />
+    <state x="773" y="15" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590014266852" />
     <state x="555" y="55" key="SettingsEditor" timestamp="1584065410680">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1584065410680" />
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1589901802095">
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2" timestamp="1590014287941">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589901802095" />
+    <state x="722" y="138" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590014287941" />
     <state x="839" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1590010253908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

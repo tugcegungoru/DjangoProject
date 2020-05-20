@@ -7,7 +7,7 @@ from content.models import Menu, Content, CImages
 from home.forms import SearchForm, SignUpForm
 # Create your views here.
 from car.models import Car, Category, Images, Comment
-from home.models import Setting, ContactFormu, ContactFormMessage, FAQ
+from home.models import Setting, ContactFormu, ContactFormMessage, FAQ, UserProfile
 
 
 def index(request):
@@ -149,6 +149,13 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
+            #otomatik profil oluşturma
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/users/womanavatar.png"
+            data.save()
+            messages.success(request, "Hoşgeldiniz... Hesabınız oluşturulmuştur.")
             return HttpResponseRedirect('/')
     form = SignUpForm()
     category = Category.objects.all()
