@@ -17,4 +17,5 @@ urlpatterns = [
     path('addadvertisement/', views.addadvertisement, name='addadvertisement'),
     path('advertisementedit/<int:id>', views.advertisementedit, name='advertisementedit'),
     path('advertisementdelete/<int:id>', views.advertisementdelete, name='advertisementdelete'),
+    path('advertisementaddimage/<int:id>', views.advertisementaddimage, name='advertisementaddimage'),
 ]

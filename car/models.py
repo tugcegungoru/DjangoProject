@@ -139,3 +139,8 @@ class CarForm(ModelForm):
             'situation':Select(attrs={'class': 'form-group', 'placeholder': 'Type'}, choices=SITUATION),
             'detail': CKEditorWidget(),
         }
+
+class CarImageForm(ModelForm):
+    class Meta:
+        model = Images
+        fields = ['title','image']

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>İlan Galerisi</title>
+</head>
+<body>
+<h2>{{car.title}}</h2><hr>
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+        {{message | safe}}
+    </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="car_id" id="id_car_id" value="{{car.id}}">
+    <label for="id_title">Adı:</label>
+    <input type="text" name="title" class="input" placeholder="Title" maxlength="50" id="id_title">
+    <label for="id_image">Fotoğraf:</label>
+    <input type="file" name="image" class="input" placeholder="Image" accept="image/*" id="id_image">
+    <button class="primary-btn" type="submit"> Fotoğraf Yükle</button>
+</form>
+<hr>
+<h4>Yüklenen Fotoğraflar</h4>
+{% for rs in images %}
+<hr>
+    <img src="{{rs.image.url}}" height="200">
+    {% endfor %}
+</body>
+</html>

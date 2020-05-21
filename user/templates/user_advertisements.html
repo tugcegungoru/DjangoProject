@@ -38,20 +38,26 @@
                             </div> <!-- end .item -->
                         <table border="1" style="text-align:center;">
                             <tr>
-                                <td width="150px"><strong>Resim</strong></td>
-                                <td width="20px"><strong>Başlık</strong></td>
-                                <td width="20"><strong>Fiyat</strong></td>
-                                <td width="20"><strong>Yıl</strong></td>
-                                <td width="20"><strong>Status</strong></td>
+                                <td><strong>Resim</strong></td>
+                                <td><strong>Başlık</strong></td>
+                                <td><strong>Fiyat</strong></td>
+                                <td><strong>Yıl</strong></td>
+                                <td><strong>Galeri</strong></td>
+                                <td><strong>Status</strong></td>
                                 <td width="20"><strong>Tarih</strong></td>
                                 <td width="20"><strong>Detay</strong></td>
                             </tr>
                             {% for rs in advertisements %}
                             <tr>
-                                <td><img src="{{rs.image.url}}" alt="" width="300"></td>
-                                <td> {{rs.title}}</td>
+                                <td><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="" width="300"></a></td>
+                                <td>{{rs.title}}</a></td>
                                 <td>{{rs.price}}</td>
                                 <td> {{rs.year}}</td>
+                                <td>
+                                    <a href="javascript:;" onclick="window.open('/user/advertisementaddimage/{{rs.id}}', 'gallery', 'height=600, width=800,top=50,left=150')">
+                                        <img src="{% static '' %}images/galleryicon.png" height="50">
+                                    </a>
+                                </td>
                                 <td>{{rs.status}}</td>
                                 <td>{{rs.create_at}}</td>
                                 <td><a href="/user/advertisementedit/{{rs.id}}">Düzenle</a>
