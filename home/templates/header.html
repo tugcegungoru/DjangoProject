@@ -9,7 +9,7 @@
 					<li class="active">
 						<a href="/">ANASAYFA</a>
 					</li>
-					<li><a href="/hakkimizda">Kategoriler</a>
+					<li><a>Kategoriler</a>
 						<ul>
 							{% recursetree category %}
 							<li>
@@ -24,7 +24,7 @@
 						</ul>
 					</li>
 					<li>
-						<a href="/">Menü</a>
+						<a>Menü</a>
 						{% if menu %}
 						<ul>
 							{% recursetree menu %}
@@ -45,7 +45,7 @@
 
 					</li>
 					<li>
-						<a href="/referanslar">Yardım Merkezi</a>
+						<a>Yardım Merkezi</a>
 						<ul>
 							<li><a href="/sss">Sıkça Sorulan Sorular</a></li>
 							<li><a href="/referanslar">Referanslar</a></li>
@@ -54,11 +54,10 @@
 					<li><a href="/iletisim">İLETİŞİM</a></li>
 					<li>
 						{% if user.id is not None %}
-						<a href="/">{{user.first_name}} {{user.last_name}}</a>
+						<a>{{user.first_name}} {{user.last_name}}</a>
 						<div class="login"><a href="/signup"><img src="{{request.user.profile.image.url}}"></img></a></div>
 						<ul>
 							<li><a href="/user">Hesabım</a></li>
-							<li><a href="#">İstek Listesi</a></li>
 							<li><a href="/user/contents">İçeriklerim</a></li>
 							<li><a href="/user/comments">Yorumlarım</a></li>
 							<li><a href="/user/advertisements">İlanlarım</a></li>

@@ -1,21 +1,21 @@
 {% load static %}
 <div class="flexslider welcome">
-	{% for rs in sliderdata %}
-		<div class="slides">
-			<div class="slide" style="background-image: url({{rs.image.url}});">
-				<div class="inner">
-					<div class="container">
-						<div class="banner-wrapper">
-							<div class="banner">
-								<div class="before">{{rs.price}} ₺ </div>
-								{{rs.title}}
-							</div> <!-- end .banner -->
-						</div> <!-- end .banner-wrapper -->
-						<a href="/car/{{ rs.id }}/{{ rs.slug }}" class="button border white xsmall">İncele</a>
-					</div> <!-- end .container -->
-				</div> <!-- end .inner -->
-			</div> <!-- end .slide -->
-		{% endfor %}
 
+	<div class="slides">
+		{% for rs in sliderdata %}
+		<div class="slide" style="background-image: url({{rs.image.url}});">
+			<div class="inner">
+				<div class="container">
+					<div class="banner-wrapper">
+						<div class="banner">
+							<div class="before">{{rs.price}} ₺ </div>
+							{{rs.title}}
+						</div> <!-- end .banner -->
+					</div> <!-- end .banner-wrapper -->
+					<a href="/car/{{ rs.id }}/{{ rs.slug }}" class="button border white xsmall">İncele</a>
+				</div> <!-- end .container -->
+			</div> <!-- end .inner -->
+		</div> <!-- end .slide -->
+		{% endfor %}
 	</div> <!-- end .slides -->
 </div> <!-- end .welcome -->

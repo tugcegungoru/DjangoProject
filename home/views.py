@@ -12,7 +12,7 @@ from home.models import Setting, ContactFormu, ContactFormMessage, FAQ, UserProf
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Car.objects.all()[:4]
+    sliderdata = Car.objects.all()[:5]
     category = Category.objects.all()
     menu = Menu.objects.all()
     daycars= Car.objects.all()[:5]
