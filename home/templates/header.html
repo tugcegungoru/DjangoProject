@@ -2,7 +2,7 @@
 <header class="header">
 	<div class="container">
 		<div class="navigation clearfix">
-			<div class="logo"><a href="/"><img src="{% static 'images/logo.png'%}" alt="Automan" class="img-responsive"></a></div> <!-- end .logo -->
+			<div class="logo"><a href="/"><img src="{% static 'images/logo3.png'%}" alt="Automan" class="img-responsive"></a></div> <!-- end .logo -->
 			<nav class="main-nav">
 				{% load mptt_tags %}
 				<ul class="list-unstyled">
@@ -40,22 +40,21 @@
 						</ul>
 						{% endif %}
 					</li>
-					<li>
-						<a href="/hakkimizda">Hakkımızda</a>
 
-					</li>
 					<li>
-						<a>Yardım Merkezi</a>
+						<a>Kurumsal</a>
 						<ul>
-							<li><a href="/sss">Sıkça Sorulan Sorular</a></li>
+
 							<li><a href="/referanslar">Referanslar</a></li>
+							<li><a href="/hakkimizda">Hakkımızda</a></li>
+							<li><a href="/iletisim">İLETİŞİM</a></li>
 						</ul>
 					</li>
-					<li><a href="/iletisim">İLETİŞİM</a></li>
+					<li><a href="/sss">Sıkça Sorulan Sorular</a></li>
 					<li>
 						{% if user.id is not None %}
 						<a>{{user.first_name}} {{user.last_name}}</a>
-						<div class="login"><a href="/signup"><img src="{{request.user.profile.image.url}}"></img></a></div>
+						<img src="{{request.user.profile.image.url}}">
 						<ul>
 							<li><a href="/user">Hesabım</a></li>
 							<li><a href="/user/contents">İçeriklerim</a></li>
@@ -64,9 +63,8 @@
 							<li><a href="/logout">Çıkış Yap</a></li>
 						</ul>
 						{% else %}
-						<a href="/login">Login</a>
-
-						<div class="login"><a href="/signup"><img src="{{user.profile.image.url}}"></img></a></div>
+						<a href="/login">Giriş Yap</a>
+						<a href="/signup">Üye Ol</a>
 						{% endif %}
 					</li>
 				</ul>
@@ -75,3 +73,43 @@
 		</div> <!-- end .navigation -->
 	</div> <!-- end .container -->
 </header> <!-- end .header -->
+<style>
+#onlyJSyc{
+display: none;
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 9999;
+border: none;
+outline: none;
+background: url({% static 'images/aa.png'%}) no-repeat;
+cursor: pointer;
+padding: 0px;
+width: 60px;
+height: 60px;
+}
+</style>
+<button onclick="topFunction()" id="onlyJSyc"></button>
+<script>
+window.onscroll = function() {
+scrollFunction()
+};
+function scrollFunction() {
+if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500)
+document.getElementById("onlyJSyc").style.display = "block"
+else
+document.getElementById("onlyJSyc").style.display = "none"
+}
+function topFunction() {
+if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+document.body.scrollTop -= 40
+document.documentElement.scrollTop -= 40
+setTimeout(function() {
+topFunction()
+}, 0)
+} else {
+document.body.scrollTop = 0
+document.documentElement.scrollTop = 0
+}
+}
+</script>

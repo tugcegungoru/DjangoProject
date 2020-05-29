@@ -9,7 +9,7 @@
             <div class="widget">
                 <form class="search-form" action="/search/" method="post">
                     {% csrf_token %}
-                    <input name="query" type="search" placeholder="search" />
+                    <input name="query" type="search" placeholder="arama" />
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div> <!-- end .widget -->
@@ -21,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h1 class="main-heading">Welcome to Car Dealership WP Theme</h1>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem eriam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <img src="{% static 'images/car1.png'%}" alt="car" class="img-responsive center-block featured-image">
+                    <h1 class="main-heading">Araba İlanı Vermek Artık Çok Kolay</h1>
+                    <p>Sitemizi ziyaret ettiğiniz için teşekkür ederiz. Araba almak için ilanları inceleyebilir, satmak isterseniz de rahatça ilan verebilirsiniz.</p>
+                    <img src="{% static 'images/ana-car.png'%}" alt="car" class="img-responsive center-block featured-image">
                 </div> <!-- end .col-sm-8 -->
             </div> <!-- end .row -->
         </div> <!-- end .container -->
@@ -32,7 +32,7 @@
 
 <section class="section white">
     <div class="inner">
-        <h1 class="main-heading">Featured Car Deals<small>Best Car Deals</small></h1>
+        <h1 class="main-heading">Sizin için Seçilenler<small>En İyi Arabalar</small></h1>
         <div id="featured-cars" class="owl-carousel featured-cars">
             {% for rs in daycars %}
             <div class="item">
@@ -47,12 +47,12 @@
                             <span class="price">{{rs.price}}₺</span>
                         </div> <!-- end .clearfix -->
                         <div class="line"></div>
-                        <p>{{rs.description}}</p>
+                        <p>{{rs.year}} Model {{rs.gear}}</p>
                     </div> <!-- end .content -->
                     <div class="details clearfix">
                         <div class="seats"><i class="icon-car-seat"></i>4</div>
                         <div class="fuel"><i class="icon-car-fuel"></i>{{rs.fuel}}</div>
-                        <div class="type"><i class="icon-car-door"></i>Sport</div>
+                        <div class="type"><i class="icon-car-door"></i>Spor</div>
                     </div> <!-- end .details -->
                 </div> <!-- end .featured-car -->
             </div> <!-- end .item -->

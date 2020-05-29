@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %}Araba İlanı Yorumları{{ setting.company }} {% endblock %}
+{% block title %}{{ setting.company }} {% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 {% block head %}
@@ -34,19 +34,19 @@
                         <h5 class="text-uppercase"><strong>Yorum Bilgileri</strong></h5><br><br>
                         <table border="1" style="text-align:center;">
                             <tr>
-                                <td width="150"><strong>Araba</strong></td>
-                                <td width="150"><strong>Konu</strong></td>
-                                <td width="350"><strong>Yorum</strong></td>
-                                <td width="200"><strong>Tarih</strong></td>
-                                <td width="70"><strong>Detay</strong></td>
+                                <td width="150" height="50"><strong>Araba</strong></td>
+                                <td width="150" height="50"><strong>Konu</strong></td>
+                                <td width="350"height="50"><strong>Yorum</strong></td>
+                                <td width="200"height="50"><strong>Tarih</strong></td>
+                                <td width="70"height="50"><strong>Detay</strong></td>
                             </tr>
                             {% for rs in comments %}
                             <tr>
-                                <td><a href="/car/{{rs.car_id}}/{{rs.car.slug}}">{{rs.car.title}}</a></td>
-                                <td> {{rs.subject}}</td>
-                                <td>{{rs.comment}}</td>
-                                <td>{{rs.create_at}}</td>
-                                <td><a href="/user/deletecomment/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a></td>
+                                <td width="150" height="50"><a href="/car/{{rs.car_id}}/{{rs.car.slug}}">{{rs.car.title}}</a></td>
+                                <td width="150" height="50"> {{rs.subject}}</td>
+                                <td width="350" height="50">{{rs.comment}}</td>
+                                <td width="200" height="50">{{rs.create_at}}</td>
+                                <td width="70" height="50"><a href="/user/deletecomment/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a></td>
                             </tr>
                             {% endfor %}
                         </table>

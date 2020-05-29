@@ -75,6 +75,7 @@ def iletisim(request):      #formu kaydetmek için
 
 
 def category_cars(request,id,slug):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     cars = Car.objects.filter(category_id=id)
@@ -83,7 +84,8 @@ def category_cars(request,id,slug):
     context= {'cars': cars,
               'category': category,
               'categorydata':categorydata,
-              'menu':menu}
+              'menu':menu,
+              'setting': setting}
     return render(request, 'cars.html', context)
 
 def car_detail(request,id,slug):
@@ -93,13 +95,15 @@ def car_detail(request,id,slug):
         images = Images.objects.filter(car_id=id)
         randomcars = Car.objects.all().order_by('?')[:4]
         comments = Comment.objects.filter(car_id=id,status='True')
+        setting = Setting.objects.get(pk=1)
         menu = Menu.objects.all()
         context = {'car': car,
             'category': category,
             'images': images,
             'randomcars': randomcars,
             'comments': comments,
-            'menu':menu}
+            'menu':menu,
+            'setting': setting}
         return render(request, 'car_detail.html', context)
     except:
         messages.warning(request, " Hata! İlgili içerik bulunamadı")
@@ -114,10 +118,11 @@ def car_search(request):
             query = form.cleaned_data['query']
             cars = Car.objects.filter(title__icontains=query)
             menu = Menu.objects.all()
-
+            setting = Setting.objects.get(pk=1)
             context = {'cars': cars,
                        'category': category,
-                       'menu':menu}
+                       'menu':menu,
+                       'setting': setting}
             return render(request, 'cars_search.html',context)
     return HttpResponseRedirect('/')
 
@@ -178,11 +183,13 @@ def contentdetail(request,id,slug):
     menu = Menu.objects.all()
     try:
         content = Content.objects.get(pk=id)
+        setting = Setting.objects.get(pk=1)
         images = CImages.objects.filter(content_id=id)
         context = {'content': content,
                    'category': category,
                    'menu': menu,
-                   'images': images}
+                   'images': images,
+                   'setting': setting}
         return render(request, 'content_detail.html', context)
 
     except:
@@ -191,19 +198,23 @@ def contentdetail(request,id,slug):
         return HttpResponseRedirect(link)
 
 def error(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     context = {'category': category,
-               'menu': menu}
+               'menu': menu,
+               'setting': setting}
     return render(request, 'error_page.html', context)
 
 
 def faq(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     menu = Menu.objects.all()
     faq = FAQ.objects.all().order_by('ordernumber')
     context = {'category': category,
                'menu': menu,
-               'faq': faq}
+               'faq': faq,
+               'setting': setting}
     return render(request, 'faq.html', context)
 

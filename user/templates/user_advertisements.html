@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %}Araba İlanı Yorumları{{ setting.company }} {% endblock %}
+{% block title %}İlanlar - {{ setting.company }} {% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 {% block head %}
@@ -31,37 +31,33 @@
                     </div> <!-- end .col-sm-4 -->
 
                     <div class="col-sm-9">
-                        <h5 class="text-uppercase"><strong>İçerik Bilgileri</strong></h5><br><br>
+                        <h5 class="text-uppercase"><strong>İlan Bilgileri</strong></h5><br><br>
                         <div class="option">
                                     <p class="button-list"><a href="/user/addadvertisement" class="button border dark size1">İlan Ekle</a></p>
 
                             </div> <!-- end .item -->
                         <table border="1" style="text-align:center;">
                             <tr>
-                                <td><strong>Resim</strong></td>
-                                <td><strong>Başlık</strong></td>
-                                <td><strong>Fiyat</strong></td>
-                                <td><strong>Yıl</strong></td>
-                                <td><strong>Galeri</strong></td>
-                                <td><strong>Status</strong></td>
-                                <td width="20"><strong>Tarih</strong></td>
-                                <td width="20"><strong>Detay</strong></td>
+                                <td width="150" height="20"><strong>Resim</strong></td>
+                                <td width="150" height="50"><strong>Başlık</strong></td>
+                                <td width="150" height="50"><strong>Fiyat</strong></td>
+                                <td width="150" height="50"><strong>Yıl</strong></td>
+                                <td width="150" height="50"><strong>Galeri</strong></td>
+                                <td width="150" height="50"><strong>Detay</strong></td>
                             </tr>
                             {% for rs in advertisements %}
                             <tr>
-                                <td><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="" width="300"></a></td>
-                                <td>{{rs.title}}</a></td>
-                                <td>{{rs.price}}</td>
-                                <td> {{rs.year}}</td>
-                                <td>
+                                <td width="150" height="20"><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="" width="300"></a></td>
+                                <td width="150" height="50"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></td>
+                                <td width="150" height="50">{{rs.price}}</td>
+                                <td width="150" height="50"> {{rs.year}}</td>
+                                <td width="150" height="50">
                                     <a href="javascript:;" onclick="window.open('/user/advertisementaddimage/{{rs.id}}', 'gallery', 'height=600, width=800,top=50,left=150')">
                                         <img src="{% static '' %}images/galleryicon.png" height="50">
                                     </a>
                                 </td>
-                                <td>{{rs.status}}</td>
-                                <td>{{rs.create_at}}</td>
-                                <td><a href="/user/advertisementedit/{{rs.id}}">Düzenle</a>
-                                <a href="/user/advertisementdelete/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a>
+                                <td width="150" height="50"><a href="/user/advertisementedit/{{rs.id}}">Düzenle</a><br>
+                                <a href="/user/advertisementdelete/{{rs.id}}" onclick="return confirm('İlanı silmek istediğinize emin misiniz?')">SİL</a>
                                 </td>
                             </tr>
                             {% endfor %}

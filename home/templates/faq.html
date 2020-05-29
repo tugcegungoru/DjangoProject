@@ -1,7 +1,7 @@
 {% extends 'homebase.html' %}
-{% block title %} {{ categorydata.title }} Sıkça Sorulan Sorular {% endblock %}
-{% block keywords %} {{ categorydata.keywords }} {% endblock %}
-{% block description %} {{ categorydata.description }} {% endblock %}
+{% block title %} Sıkça Sorulan Sorular - {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
 {% block head %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
 {% load static %}
 
 
-<div class="page-title" style="background-image: url('images/background01.jpg');">
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
 	<div class="inner">
 		<div class="container">
 			<div class="title">Sıkça Sorulan Sorular</div> <!-- end .title -->

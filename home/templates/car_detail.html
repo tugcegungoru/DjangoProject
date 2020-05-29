@@ -81,7 +81,7 @@
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Kasa Tipi</div>
-                                <div class="option-content">Sports Utility Vehicle</div>
+                                <div class="option-content">Spor Araba</div>
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Kilometre</div>
@@ -101,7 +101,7 @@
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Konum</div>
-                                <div class="option-content">Toronto</div>
+                                <div class="option-content">İstanbul</div>
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Fiyat</div>
@@ -116,7 +116,7 @@
                     <div class="col-sm-4">
                         <div class="leave-reply">
                             <h4>Yanıtınızı Bırakın</h4>
-                            <div class="col-sm-4">
+                            <div>
                                 {% if messages %}
                                 {% for message in messages %}
                                 <div class="alert alert-{{message.tags}}" role="alert">
@@ -156,7 +156,7 @@
                         <div class="image"><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="listing" class="img-responsive"></a></div>
                         <div class="content">
                             <div class="title"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></div>
-                            <p>{{rs.description}}</p>
+                            <p></p>
                             <div class="price">{{rs.price}}₺</div>
                         </div>
                     </div> <!-- end .listing -->

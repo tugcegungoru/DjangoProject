@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %}Araba İlanı Yorumları{{ setting.company }} {% endblock %}
+{% block title %}{{ setting.company }} {% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 {% block head %}
@@ -11,7 +11,7 @@
 <div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
     <div class="inner">
         <div class="container">
-            <div class="title">Araba İlanı Yorumları</div> <!-- end .title -->
+            <div class="title">İçeriklerim</div> <!-- end .title -->
         </div> <!-- end .container -->
     </div> <!-- end .inner -->
 </div> <!-- end .page-title -->
@@ -31,7 +31,7 @@
                     </div> <!-- end .col-sm-4 -->
 
                     <div class="col-sm-9">
-                        <h5 class="text-uppercase"><strong>İçerik Bilgileri</strong></h5><br><br>
+                        <h5 class="text-uppercase"><strong>İÇERİK BİLGİLERİ</strong></h5><br><br>
                         <div class="option">
                                     <p class="button-list"><a href="/user/addcontent" class="button border dark size1">İçerik Ekle</a></p>
 
@@ -40,22 +40,18 @@
                             <tr>
                                 <td width="150"><strong>Resim</strong></td>
                                 <td width="150"><strong>Başlık</strong></td>
-                                <td width="350"><strong>Type</strong></td>
-                                <td width="200"><strong>Menu</strong></td>
-                                <td width="70"><strong>Status</strong></td>
+                                <td width="150"><strong>Type</strong></td>
                                 <td width="200"><strong>Tarih</strong></td>
-                                <td width="70"><strong>Detay</strong></td>
+                                <td width="150"><strong>Detay</strong></td>
                             </tr>
                             {% for rs in contents %}
                             <tr>
                                 <td><img src="{{rs.image.url}}" alt="" width="300"></td>
                                 <td> {{rs.title}}</td>
                                 <td>{{rs.type}}</td>
-                                <td> {{rs.menu.title}}</td>
-                                <td>{{rs.menu.status}}</td>
                                 <td>{{rs.create_at}}</td>
-                                <td><a href="/user/contentedit/{{rs.id}}">Düzenle</a>
-                                <a href="/user/contentdelete/{{rs.id}}" onclick="return confirm('Yorumu silmek istediğinize emin misiniz?')">SİL</a>
+                                <td><a href="/user/contentedit/{{rs.id}}">Düzenle</a><br>
+                                <a href="/user/contentdelete/{{rs.id}}" onclick="return confirm('İçeriği silmek istediğinize emin misiniz?')">SİL</a>
                                 </td>
                             </tr>
                             {% endfor %}

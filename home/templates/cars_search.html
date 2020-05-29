@@ -10,7 +10,7 @@
 {% load static %}
 
 
-<div class="page-title" style="background-image: url('images/background01.jpg');">
+<div class="page-title" style="background-image: url({% static 'images/background01.jpg' %} );">
 	<div class="inner">
 		<div class="container">
 			<div class="title">Arama Sonuçları</div> <!-- end .title -->
@@ -31,28 +31,13 @@
 									<div class="image"><a href="/car/{{rs.id}}/{{rs.slug}}"><img src="{{rs.image.url}}" alt="listing" class="img-responsive"></a></div>
 									<div class="content">
 										<div class="title"><a href="/car/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a></div>
-										<p>{{rs.description}}</p>
+										<p>{{rs.gear}}</p>
 										<div class="price">{{rs.price}}₺</div>
 									</div>
 								</div> <!-- end .listing -->
 								{% endfor %}
 							</div> <!-- end .listing-grid -->
 						</div> <!-- end .listings -->
-						<div class="pagination-wrapper">
-							<nav>
-								<ul class="pager">
-									<li class="previous"><a href=""><span><i class="fa fa-angle-left"></i></span>Prev</a></li>
-									<li class="next"><a href="">Next<span><i class="fa fa-angle-right"></i></span></a></li>
-								</ul>
-								<ul class="pagination">
-									<li class="active"><a href="">1</a></li>
-									<li><a href="">2</a></li>
-									<li><a href="">3</a></li>
-									<li class="disabled"><a href=""><i class="ion-ios-more"></i></a></li>
-									<li><a href="">7</a></li>
-								</ul>
-							</nav>
-						</div> <!-- end .pagination-wrapper -->
 					</div> <!-- end .col-sm-9 -->
 				</div> <!-- end .row -->
 			</div> <!-- end .container -->
