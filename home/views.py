@@ -78,7 +78,10 @@ def category_cars(request,id,slug):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
-    cars = Car.objects.filter(category_id=id)
+    if slug == 'child':
+        cars = Car.objects.filter(category_id=id)
+    else:
+        cars = Car.objects.filter(category__parent_id=id)
     menu = Menu.objects.all()
 
     context= {'cars': cars,
@@ -206,6 +209,11 @@ def error(request):
                'setting': setting}
     return render(request, 'error_page.html', context)
 
+#def content_detail(request,id,slug):
+#   category = Category.objects.all()
+#   car = Car.objects.filter(category_id=id)
+#   link = '/car/' +str(car[0].id)+'/'+car[0].slug
+#   return HttpResponseRedirect(link)
 
 def faq(request):
     setting = Setting.objects.get(pk=1)

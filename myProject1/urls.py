@@ -37,6 +37,7 @@ urlpatterns = [
 
     path('category/<int:id>/<slug:slug>/', views.category_cars, name='category_cars'),
     path('car/<int:id>/<slug:slug>/', views.car_detail, name='car_detail'),
+    #path('content/<int:id>/<slug:slug>/', views.content_detail, name='content_detail'),
     path('content/<int:id>/<slug:slug>/', views.contentdetail, name='contentdetail'),
     path('menu/<int:id>/', views.menu, name='menu'),
 

@@ -52,7 +52,7 @@
                                          {% for rs in comments %}
 										<div class="comment clearfix">
                                             {% load static %}
-											<div class="image"><img src="{% static 'images/comment01.jpg' %}"></div>
+
 											<div class="content">
 												<p><a href="">{{rs.user.first_name}} {{rs.user.last_name}}</a><br><br><b>{{rs.subject}}</b><p>{{rs.comment}}</p></p>
 											</div> <!-- end .content -->
