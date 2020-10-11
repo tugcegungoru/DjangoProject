@@ -81,7 +81,7 @@
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Kasa Tipi</div>
-                                <div class="option-content">Spor Araba</div>
+                                <div class="option-content">{{car.situation}}</div>
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Kilometre</div>
@@ -101,7 +101,7 @@
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Konum</div>
-                                <div class="option-content">İstanbul</div>
+                                <div class="option-content">{{profile.city}}</div>
                             </div> <!-- end .item -->
                             <div class="item clearfix">
                                 <div class="option">Fiyat</div>
@@ -110,6 +110,14 @@
                             <div class="item clearfix">
                                 <div class="option">Renk</div>
                                 <div class="option-content">{{car.color}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">İlan SAHİBİ</div>
+                                <div class="option-content">{{car.user}}</div>
+                            </div> <!-- end .item -->
+                            <div class="item clearfix">
+                                <div class="option">Telefon</div>
+                                <div class="option-content">{{profile.phone}}</div>
                             </div> <!-- end .item -->
                         </div> <!-- end .main-car-details -->
                     </div> <!-- end .col-sm-4 -->

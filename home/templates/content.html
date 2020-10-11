@@ -1,16 +1,41 @@
 {% load static %}
-<div class="responsive-menu">
-    <a href="" class="responsive-menu-close"><i class="ion-android-close"></i></a>
-    <nav class="responsive-nav"></nav> <!-- end .responsive-nav -->
-</div> <!-- end .responsive-menu -->
+<script>
+    $(function() {
+    $("#query").autocomplete({
+      source: "/search_auto/",
+      select: function (event, ui) { //item selected
+        AutoCompleteSelectHandler(event, ui)
+      },
+      minLength: 2,
+    });
+  });
+  function AutoCompleteSelectHandler(event, ui)
+  {
+    var selectedObj = ui.item;
+  }
+</script>
 <section class="section dark tiny">
     <div class="inner">
         <div class="container">
             <div class="widget">
                 <form class="search-form" action="/search/" method="post">
                     {% csrf_token %}
-                    <input name="query" type="search" placeholder="arama" />
+                    <input id="query" name="query" type="search" placeholder="arama" />
                     <button type="submit"><i class="fa fa-search"></i></button>
+                    {% load mptt_tags %}
+                    <select name="catid" class="input search-categories">
+                        <option value="0">Tüm Kategoriler</option>
+                        {% recursetree category %}
+                        {% if node.is_leaf_node %}
+                        <option value="{{node.id}}">{{node.title}}</option>
+                        {% endif %}
+                        {% if not node.is_leaf_node %}
+                        <optgroup label="{{node.title}}">
+                            {{children}}
+                        </optgroup>
+                        {% endif %}
+                        {% endrecursetree %}
+                    </select>
                 </form>
             </div> <!-- end .widget -->
         </div> <!-- end .container -->

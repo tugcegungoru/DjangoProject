@@ -29,15 +29,15 @@
 							<div class="listing">
 								<div class="image" style="background-image: url({{rs.image.url}});"></div>
 								<div class="details">
-									<div class="item"><span>4</span><i class="icon-car-seat"></i></div>
+									<div class="item"><span>{{rs.km}}km</span><i class="fa fa-certificate"></i></div>
 									<div class="item"><span>{{rs.fuel}}</span><i class="icon-car-fuel"></i></div>
-									<div class="item"><span>4</span><i class="icon-car-door"></i></div>
+									<div class="item"><span>{{rs.situation}}</span><i class="icon-car-door"></i></div>
 									<div class="item"><span>{{rs.gear}}</span><i class="icon-car-gear"></i></div>
-									<div class="item"><span>Spor</span><i class="fa fa-certificate"></i></div>
+									<div class="item"><span>{{rs.year}}</span><i class="fa fa-certificate"></i></div>
 								</div> <!-- end .details -->
 								<div class="content">
 									<div class="title"><a href="/car/{{ rs.id }}/{{ rs.slug }}">{{rs.title}}</a></div>
-									<p>{{rs.gear}}</p>
+									<p><br></p>
 									<a href="/car/{{ rs.id }}/{{ rs.slug }}" class="button border">Daha Fazla</a>
 									<div class="price">{{rs.price}}₺</div>
 								</div> <!-- end .content -->

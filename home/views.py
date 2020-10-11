@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
+from django.core.serializers import json
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -99,6 +100,8 @@ def car_detail(request,id,slug):
         randomcars = Car.objects.all().order_by('?')[:4]
         comments = Comment.objects.filter(car_id=id,status='True')
         setting = Setting.objects.get(pk=1)
+        current_user = request.user
+        profile = UserProfile.objects.get(user_id=current_user.id)
         menu = Menu.objects.all()
         context = {'car': car,
             'category': category,
@@ -106,7 +109,8 @@ def car_detail(request,id,slug):
             'randomcars': randomcars,
             'comments': comments,
             'menu':menu,
-            'setting': setting}
+            'setting': setting,
+            'profile': profile}
         return render(request, 'car_detail.html', context)
     except:
         messages.warning(request, " Hata! İlgili içerik bulunamadı")
@@ -119,7 +123,11 @@ def car_search(request):
         if form.is_valid():
             category = Category.objects.all()
             query = form.cleaned_data['query']
-            cars = Car.objects.filter(title__icontains=query)
+            catid = form.cleaned_data['catid']
+            if catid == 0:
+                cars = Car.objects.filter(title__icontains=query)
+            else:
+                cars = Car.objects.filter(title__icontains=query, category_id=catid)
             menu = Menu.objects.all()
             setting = Setting.objects.get(pk=1)
             context = {'cars': cars,
@@ -128,6 +136,21 @@ def car_search(request):
                        'setting': setting}
             return render(request, 'cars_search.html',context)
     return HttpResponseRedirect('/')
+
+def car_search_auto(request):
+    if request.is_ajax():
+        q = request.GET.get('term','')
+        car = Car.objects.filter(title__icontains=q)
+        results = []
+        for rs in car:
+            car_json = {}
+            car_json = rs.title
+            results.append(car_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
 
 def logout_view(request):
     logout(request)

@@ -47,9 +47,24 @@ STATUS = (
     ('False', 'Hayır'),
 )
 SITUATION = (
-    ('True','Used'),
-    ('False','New'),
+    ('Cabrio','Cabrio'),
+    ('Coupe','Coupe'),
+    ('Hatchback', 'Hatchback'),
+    ('Sedan', 'Sedan'),
 )
+FUEL = (
+    ('Benzin', 'Benzin'),
+    ('LPG', 'LPG'),
+    ('Dizel', 'Dizel'),
+    ('Hybrid', 'Hybrid'),
+)
+
+GEAR = (
+    ('Manuel', 'Manuel'),
+    ('Otomatik', 'Otomatik'),
+    ('Yarı Otomatik', 'Yarı Otomatik'),
+)
+
 class Car(models.Model):
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -61,8 +76,8 @@ class Car(models.Model):
     image = models.ImageField(blank=True, upload_to='images/')
     price = models.IntegerField()
     year = models.IntegerField()
-    fuel = models.CharField(max_length=15)
-    gear = models.CharField(max_length=20)
+    fuel = models.CharField(max_length=10, choices=FUEL)
+    gear = models.CharField(max_length=15, choices=GEAR)
     km = models.IntegerField()
     motorpower = models.IntegerField()
     color = models.CharField(max_length=20)
@@ -131,8 +146,8 @@ class CarForm(ModelForm):
             'image': FileInput(attrs={'class': 'form-group', 'placeholder': 'Image'}),
             'price': NumberInput(attrs={'class': 'form-group', 'placeholder': 'Fiyat'}),
             'year': NumberInput(attrs={'class': 'form-group', 'placeholder': 'Yıl'}),
-            'fuel': TextInput(attrs={'class': 'form-group', 'placeholder': 'Yakıt'}),
-            'gear':TextInput(attrs={'class': 'form-group', 'placeholder': 'Vites'}),
+            'fuel': Select(attrs={'class': 'form-group', 'placeholder': 'Yakıt'}, choices=FUEL),
+            'gear':Select(attrs={'class': 'form-group', 'placeholder': 'Vites'}, choices=GEAR),
             'km':NumberInput(attrs={'class': 'form-group', 'placeholder': 'Kilometre'}),
             'motorpower':NumberInput(attrs={'class': 'form-group', 'placeholder': 'Motor Gücü'}),
             'color': TextInput(attrs={'class': 'form-group', 'placeholder': 'Renk'}),
